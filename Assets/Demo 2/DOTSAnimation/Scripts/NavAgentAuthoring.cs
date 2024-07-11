@@ -4,6 +4,7 @@ using Unity.Entities;
 public class NavAgentAuthoring : MonoBehaviour
 {
     [SerializeField] private float moveSpeed;
+    [SerializeField] private bool isIdle;
 
     private class AuthoringBaker : Baker<NavAgentAuthoring>
     {
@@ -13,7 +14,8 @@ public class NavAgentAuthoring : MonoBehaviour
 
             AddComponent(authoringEntity, new NavAgentComponent
             {
-                moveSpeed = authoring.moveSpeed
+                moveSpeed = authoring.moveSpeed,
+                isIdle = authoring.isIdle
             });
 
             AddBuffer<WaypointBuffer>(authoringEntity);

@@ -30,6 +30,8 @@ public partial struct NPCAnimationSystem : ISystem
 
                 navAgentComponent.ValueRW.wOffset = UnityEngine.Random.Range(0.0f, 1.0f);
                 navAgentComponent.ValueRW.speedMultiplier = UnityEngine.Random.Range(2.0f, 3.0f);
+
+                navAgentComponent.ValueRW.isIdle = false;
             }
             else
             {
@@ -38,7 +40,8 @@ public partial struct NPCAnimationSystem : ISystem
                 NPCVisualsReference.gameObject.transform.position = transform.ValueRO.Position;
                 NPCVisualsReference.gameObject.transform.rotation = transform.ValueRO.Rotation;
 
-                NPCVisualsReference.gameObject.GetComponent<Animator>().SetBool("isWalking", true);
+                NPCVisualsReference.gameObject.GetComponent<Animator>().SetBool("isWalking", !navAgentComponent.ValueRO.isIdle);
+                NPCVisualsReference.gameObject.GetComponent<Animator>().SetBool("isIdle", navAgentComponent.ValueRO.isIdle);
 
                 NPCVisualsReference.gameObject.GetComponent<Animator>().SetFloat("wOffset", navAgentComponent.ValueRO.wOffset);
                 

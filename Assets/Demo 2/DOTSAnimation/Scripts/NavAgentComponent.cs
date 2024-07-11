@@ -3,7 +3,6 @@ using Unity.Mathematics;
 
 public struct NavAgentComponent : IComponentData
 {
-	// public Entity targetEntity;
 	public float3 currentGoalPosition;
 	public bool pathCalculated;
 	public int currentWaypoint;
@@ -12,6 +11,7 @@ public struct NavAgentComponent : IComponentData
 	public bool arrived;
 	public float wOffset;
 	public float speedMultiplier;
+	public bool isIdle;
 }
 
 public struct WaypointBuffer : IBufferElementData

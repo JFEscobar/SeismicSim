@@ -22,6 +22,8 @@ public partial struct NavAgentSystem : ISystem
         {
             DynamicBuffer<WaypointBuffer> waypointBuffer = state.EntityManager.GetBuffer<WaypointBuffer>(entity);
 
+            if (navAgent.ValueRO.isIdle) { return ; }
+
             // if (navAgent.ValueRO.nextPathCalculateTime < SystemAPI.Time.ElapsedTime)
             if (navAgent.ValueRO.arrived || waypointBuffer.Length == 0)
             {
