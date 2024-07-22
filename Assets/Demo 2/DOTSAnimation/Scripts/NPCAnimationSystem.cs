@@ -46,7 +46,7 @@ public partial struct NPCAnimationSystem : ISystem
                 NPCVisualsReference.gameObject.GetComponent<Animator>().SetFloat("wOffset", navAgentComponent.ValueRO.wOffset);
                 
                 NPCVisualsReference.gameObject.GetComponent<Animator>().SetFloat("speedMultiplier", navAgentComponent.ValueRO.speedMultiplier);
-                navAgentComponent.ValueRW.moveSpeed = navAgentComponent.ValueRO.speedMultiplier;
+                //navAgentComponent.ValueRW.moveSpeed = navAgentComponent.ValueRO.speedMultiplier ;
             }
 
         }
